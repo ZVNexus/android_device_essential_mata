@@ -1,5 +1,5 @@
 cc_library_shared {
-    name: "android.hardware.thermal@1.1-wahoo",
+    name: "android.hardware.thermal@1.1-mata",
     defaults: ["hidl_defaults"],
     owner: "qcom",
     vendor: true,

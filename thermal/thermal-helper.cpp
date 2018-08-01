@@ -57,7 +57,7 @@ bool initThermal() {
         gSkinThrottlingThreshold = kWalleyeSkinThrottlingThreshold;
         gSkinShutdownThreshold = kWalleyeSkinShutdownThreshold;
         gVrThrottledBelowMin = kWalleyeVrThrottledBelowMin;
-    } else if (hardware == "taimen") {
+    } else if (hardware == "mata") {
         std::string rev = android::base::GetProperty("ro.revision", "");
         if (rev == "rev_a" || rev == "rev_b") {
             LOG(ERROR) << "Initialization on Taimen pre revision C";

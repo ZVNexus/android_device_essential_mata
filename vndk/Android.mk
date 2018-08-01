@@ -1,4 +1,4 @@
-ifneq ($(filter muskie walleye taimen, $(TARGET_DEVICE)),)
+ifneq ($(filter muskie walleye mata, $(TARGET_DEVICE)),)
 LOCAL_PATH := $(call my-dir)
 
 ifndef BOARD_VNDK_VERSION
