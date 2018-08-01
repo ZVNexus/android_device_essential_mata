@@ -23,6 +23,15 @@ set_prop(cnd, cnd_prop)
 allow cnd self:socket create_socket_perms;
 allowxperm cnd self:socket ioctl msm_sock_ipc_ioctls;
 
+allow cnd diag_device:chr_file { read write };
+allow cnd hostapd_socket:dir search;
+allow cnd vendor_file:file execute_no_trans;
+allow cnd vendor_shell_exec:file execute_no_trans;
+allow cnd wifi_data_file:dir search;
+allow cnd wpa_socket:dir { add_name remove_name search write };
+allow cnd wpa_socket:sock_file { create setattr unlink };
+
+
 # To register cnd to hwbinder
 add_hwservice(cnd, hal_cne_hwservice)
 hwbinder_use(cnd)

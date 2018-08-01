@@ -36,7 +36,7 @@
 /*
  * Change this to 1 to support battery notifications via BatteryService
  */
-#define LIGHTS_SUPPORT_BATTERY 0
+#define LIGHTS_SUPPORT_BATTERY 1
 #define CG_COLOR_ID_PROPERTY "ro.boot.hardware.color"
 
 #define LP_MODE_BRIGHTNESS_PROPERTY "sys.display.low_persistence_mode_brightness"
@@ -219,6 +219,7 @@ set_speaker_light_locked(struct light_device_t* dev,
         struct light_state_t const* state)
 {
     int red, green, blue;
+    int blink;
     int onMS, offMS;
     unsigned int colorRGB;
 

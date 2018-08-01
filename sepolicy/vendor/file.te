@@ -8,6 +8,7 @@ type sysfs_laser, sysfs_type, fs_type;
 type sysfs_mdss_mdp_caps, sysfs_type, fs_type;
 type sysfs_msm_subsys, sysfs_type, fs_type;
 type sysfs_msm_subsys_restart, sysfs_type, fs_type;
+type sysfs_net, sysfs_type, fs_type;
 type sysfs_rmtfs, sysfs_type, fs_type;
 type sysfs_soc, sysfs_type, fs_type;
 type sysfs_scsi_devices_0000, sysfs_type, fs_type;
@@ -68,9 +69,10 @@ type ramdump_vendor_data_file, file_type, data_file_type, mlstrustedobject;
 type modem_dump_file, file_type, data_file_type;
 type ese_vendor_data_file, file_type, data_file_type;
 type sensors_vendor_data_file, file_type, data_file_type;
-type audio_vendor_data_file, file_type, data_file_type;
 
 type vendor_firmware_file, vendor_file_type, file_type;
+
+type ramdump_data_file, file_type, data_file_type, mlstrustedobject;
 
 #data sysfs files
 type sysfs_data, fs_type, sysfs_type;

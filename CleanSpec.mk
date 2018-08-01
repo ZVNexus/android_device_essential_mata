@@ -47,7 +47,7 @@
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor)
 
-$(call add-clean-step, rm -rf $(OUT_DIR)/target/product/taimen/vendor/etc/sensors/sensor_def_taimen.conf)
+$(call add-clean-step, rm -rf $(OUT_DIR)/target/product/mata/vendor/etc/sensors/sensor_def_mata.conf)
 
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/etc/init/init-$(PRODUCT_HARDWARE).rc)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/root/init.$(PRODUCT_HARDWARE).usb.rc)
@@ -56,7 +56,7 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/bin/init.power.sh)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/bin/init.radio.sh)
 
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/root/init.$(PRODUCT_HARDWARE).rc)
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/root/init.taimen.usb.rc)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/root/init.mata.usb.rc)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/root/init.$(PRODUCT_HARDWARE).diag.rc)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/root/ueventd.$(PRODUCT_HARDWARE).rc)
 
@@ -134,8 +134,8 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/vndk-sp-*)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/etc/lowi.conf)
 
 # Vibrator HAL 1.0
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/init/android.hardware.vibrator@1.0-service.taimen.rc)
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/bin/hw/android.hardware.vibrator@1.0-service.taimen)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/init/android.hardware.vibrator@1.0-service.mata.rc)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/bin/hw/android.hardware.vibrator@1.0-service.mata)
 
 # Broadcast Radio HAL impl 1.0
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib/hw/android.hardware.broadcastradio@1.0-impl.so)
@@ -152,5 +152,5 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/vndk-sp/libz.so)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/priv-app/EuiccGoogle/esim.img)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/priv-app/EuiccGoogle/esim2.img)
 
-# android.hardware.thermal@1.0-taimen.so can be a static lib
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib/hw/android.hardware.thermal@1.0-taimen.so)
+# android.hardware.thermal@1.0-mata.so can be a static lib
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib/hw/android.hardware.thermal@1.0-mata.so)

@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2017 The Android Open-Source Project
+# Copyright (C) 2018 The Android Open-Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+TARGET_BOOTLOADER_BOARD_NAME := mata
+BOARD_BOOTIMAGE_PARTITION_SIZE := 20534576
 TARGET_BOARD_PLATFORM := msm8998
 
 TARGET_ARCH := arm64
@@ -28,79 +30,73 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a73
 
-BOARD_KERNEL_CMDLINE += androidboot.hardware=$(TARGET_BOOTLOADER_BOARD_NAME) androidboot.console=ttyMSM0,115200,n8
-BOARD_KERNEL_CMDLINE += earlycon=msm_serial_dm,0xc1b0000 enforcing=0 androidboot.selinux=permissive lpm_levels.sleep_disabled=1
-BOARD_KERNEL_CMDLINE += user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3
-BOARD_KERNEL_CMDLINE += service_locator.enable=1
-BOARD_KERNEL_CMDLINE += swiotlb=2048
-BOARD_KERNEL_CMDLINE += firmware_class.path=/vendor/firmware
-BOARD_KERNEL_CMDLINE += loop.max_part=7
-BOARD_KERNEL_CMDLINE += raid=noautodetect
+BOARD_KERNEL_CMDLINE += androidboot.hardware=mata user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3
+BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_enable_power_aware=1
+BOARD_KERNEL_CMDLINE += service_locator.enable=1 swiotlb=2048 androidboot.configfs=true androidboot.usbcontroller=a800000.dwc3
+BOARD_KERNEL_CMDLINE += buildvariant=$(TARGET_BUILD_VARIANT) enforcing=0 androidboot.selinux=permissive
 
-KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/aarch64/aarch64-linux-android-4.9/bin
-KERNEL_TOOLCHAIN_PREFIX := aarch64-linux-android-
-TARGET_KERNEL_SOURCE := kernel/google/taimen
+TARGET_KERNEL_CLANG_COMPILE := true
+TARGET_KERNEL_CLANG_VERSION := clang-stable
+TARGET_KERNEL_SOURCE := kernel/essential/mata
 TARGET_KERNEL_CONFIG := custom_defconfig
 TARGET_KERNEL_ARCH := arm64
-BOARD_KERNEL_IMAGE_NAME := Image.lz4-dtb
-
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+TARGET_COMPILE_WITH_MSM_KERNEL := true
 
 BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_PAGESIZE    := 4096
-ifeq ($(filter-out walleye_kasan, muskie_kasan, $(TARGET_PRODUCT)),)
-BOARD_KERNEL_OFFSET      := 0x80000
-BOARD_KERNEL_TAGS_OFFSET := 0x02500000
-BOARD_RAMDISK_OFFSET     := 0x02700000
-BOARD_MKBOOTIMG_ARGS     := --kernel_offset $(BOARD_KERNEL_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
-else
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET     := 0x02000000
-endif
 
 TARGET_NO_BOOTLOADER ?= true
-TARGET_NO_KERNEL := false
 TARGET_NO_RECOVERY := true
 BOARD_USES_RECOVERY_AS_BOOT := true
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 
 # Partitions (listed in the file) to be wiped under recovery.
-TARGET_RECOVERY_WIPE := device/google/taimen/recovery.wipe
-TARGET_RECOVERY_FSTAB := device/google/taimen/fstab.hardware
+TARGET_RECOVERY_WIPE := device/essential/mata/recovery.wipe
+TARGET_RECOVERY_FSTAB := device/essential/mata/fstab.mata
 
-BOARD_AVB_ENABLE := true
+# Android Verified Boot (AVB):
+#   Builds a special vbmeta.img that disables AVB verification.
+#   Otherwise, AVB will prevent the device from booting the generic system.img.
+#   Also checks that BOARD_AVB_ENABLE is not set, to prevent adding verity
+#   metadata into system.img.
 
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2684354560
+BOARD_AVB_ENABLE := false
+BOARD_BUILD_DISABLED_VBMETAIMAGE := true
+
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 4294967296
 BOARD_SYSTEMIMAGE_JOURNAL_SIZE := 0
 BOARD_SYSTEMIMAGE_EXTFS_INODE_COUNT := 4096
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 1987357000
 TARGET_USERIMAGES_USE_EXT4 := true
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 26503790080
-BOARD_PERSISTIMAGE_PARTITION_SIZE := 33554432
-BOARD_PERSISTIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_BOOTIMAGE_PARTITION_SIZE := 41943040
-BOARD_FLASH_BLOCK_SIZE := 131072
-BOARD_DTBOIMG_PARTITION_SIZE := 8388608
-
-# DTBO partition definitions
-#BOARD_PREBUILT_DTBOIMAGE := device/google/taimen-kernel/dtbo.img
+BOARD_VENDORIMAGE_PARTITION_SIZE := 1073741824
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_FLASH_BLOCK_SIZE := 131072 #BOARD_KERNEL_PAGESIZE *64
 
 TARGET_COPY_OUT_VENDOR := vendor
 
-# Install odex files into the other system image
-BOARD_USES_SYSTEM_OTHER_ODEX := true
+# Skip API checks.
+WITHOUT_CHECK_API := true
+# Don't try to build and run all tests by default. Several tests have
+# dependencies on the framework.
+ANDROID_NO_TEST_CHECK := true
 
 BOARD_ROOT_EXTRA_FOLDERS := persist firmware metadata
 
-BOARD_SEPOLICY_DIRS += device/google/taimen/sepolicy/vendor
-BOARD_PLAT_PUBLIC_SEPOLICY_DIR := device/google/taimen/sepolicy/public
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR := device/google/taimen/sepolicy/private
-BOARD_SEPOLICY_DIRS += device/google/taimen/sepolicy/verizon
-BOARD_SEPOLICY_DIRS += device/google/taimen/sepolicy
+# sepolicy
+BOARD_SEPOLICY_DIRS += device/essential/mata/sepolicy
+BOARD_SEPOLICY_DIRS += device/essential/mata/sepolicy/vendor
+BOARD_PLAT_PUBLIC_SEPOLICY_DIR := device/essential/mata/sepolicy/public
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR := device/essential/mata/sepolicy/private
+BOARD_SEPOLICY_DIRS += device/essential/mata/sepolicy/verizon
 
-TARGET_ANDROID_FILESYSTEM_CONFIG_H := device/google/taimen/android_filesystem_config.h
+TARGET_ANDROID_FILESYSTEM_CONFIG_H := device/essential/mata/android_filesystem_config.h
 
 QCOM_BOARD_PLATFORMS += msm8998
 BOARD_HAVE_BLUETOOTH_QCOM := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/google/taimen/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/essential/mata/bluetooth
 
 # Enable dex pre-opt to speed up initial boot
 ifeq ($(HOST_OS),linux)
@@ -119,8 +115,6 @@ TARGET_USES_AOSP := true
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 CAMERA_DAEMON_NOT_PRESENT := true
 TARGET_USES_ION := true
-TARGET_USES_EASEL := true
-BOARD_USES_EASEL := true
 
 # GPS
 TARGET_NO_RPC := true
@@ -151,15 +145,9 @@ AUDIO_FEATURE_ENABLED_SND_MONITOR := true
 AUDIO_FEATURE_ENABLED_USB_TUNNEL := true
 BOARD_ROOT_EXTRA_SYMLINKS := /vendor/lib/dsp:/dsp
 
-# Include whaoo modules
-USES_DEVICE_GOOGLE_TAIMEN := true
-
 # Graphics
 TARGET_USES_GRALLOC1 := true
 TARGET_USES_HWC2 := true
-
-VSYNC_EVENT_PHASE_OFFSET_NS := 2000000
-SF_VSYNC_EVENT_PHASE_OFFSET_NS := 6000000
 
 # Display
 TARGET_HAS_WIDE_COLOR_DISPLAY := true
@@ -170,8 +158,8 @@ TARGET_USES_COLOR_METADATA := true
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
 # Vendor Interface Manifest
-DEVICE_MANIFEST_FILE := device/google/taimen/manifest.xml
-DEVICE_MATRIX_FILE := device/google/taimen/compatibility_matrix.xml
+DEVICE_MANIFEST_FILE := device/essential/mata/manifest.xml
+DEVICE_MATRIX_FILE := device/essential/mata/compatibility_matrix.xml
 
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 
@@ -179,17 +167,3 @@ BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 TARGET_USES_MKE2FS := true
 
 BOARD_VNDK_VERSION := current
-
-TARGET_BOOTLOADER_BOARD_NAME := taimen
-DEFAULT_LOW_PERSISTENCE_MODE_BRIGHTNESS := 0x0000008c
-
--include vendor/google_devices/taimen/proprietary/BoardConfigVendor.mk
-
-# Testing related defines
-BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/taimen-setup.sh
-
-BOARD_LISA_TARGET_SCRIPTS := device/google/taimen/lisa/
-
-# Rounded corners recovery UI. 105px = 30dp * 3.5 density, where 30dp comes from
-# rounded_corner_radius in overlay/frameworks/base/packages/SystemUI/res/values/dimens.xml.
-TARGET_RECOVERY_UI_MARGIN_HEIGHT := 105
