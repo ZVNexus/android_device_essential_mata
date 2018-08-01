@@ -1,5 +1,5 @@
 #
-# Copyright 2017 The Android Open Source Project
+# Copyright 2018 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,15 +15,14 @@
 #
 
 # Get the full APNs
-PRODUCT_COPY_FILES := device/google/taimen/apns-full-conf.xml:system/etc/apns-conf.xml
+PRODUCT_COPY_FILES := device/essential/mata/apns-full-conf.xml:system/etc/apns-conf.xml
 
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
-
-$(call inherit-product, device/google/taimen/device.mk)
-$(call inherit-product-if-exists, vendor/google_devices/taimen/proprietary/device-vendor.mk)
+$(call inherit-product, device/essential/mata/device.mk)
+$(call inherit-product-if-exists, vendor/essential/mata/mata-vendor.mk)
 
 PRODUCT_PACKAGES += \
     Dialer \
@@ -31,12 +30,12 @@ PRODUCT_PACKAGES += \
     WallpaperPicker
 
 PRODUCT_COPY_FILES += \
-    device/google/taimen/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml
+    device/essential/mata/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml
 
-PRODUCT_RESTRICT_VENDOR_FILES := owner
+PRODUCT_RESTRICT_VENDOR_FILES := false
 
-PRODUCT_MANUFACTURER := Google
-PRODUCT_BRAND := Android
-PRODUCT_NAME := aosp_taimen
-PRODUCT_DEVICE := taimen
-PRODUCT_MODEL := AOSP on taimen
+PRODUCT_MANUFACTURER := Essential Products
+PRODUCT_BRAND := essential
+PRODUCT_NAME := aosp_mata
+PRODUCT_DEVICE := mata
+PRODUCT_MODEL := PH-1
