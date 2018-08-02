@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+LOCAL_PATH :=  device/essential/mata
+
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := 560dpi
 PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
@@ -27,8 +29,6 @@ ifdef DEVICE_PACKAGE_OVERLAYS
 $(warning Overlays defined in '$(DEVICE_PACKAGE_OVERLAYS)' will override '$(PRODUCT_HARDWARE)' overlays)
 endif
 DEVICE_PACKAGE_OVERLAYS += device/essential/mata/overlay
-
-include device/essential/mata/device.mk
 
 # Tethering
 PRODUCT_PROPERTY_OVERRIDES += \
