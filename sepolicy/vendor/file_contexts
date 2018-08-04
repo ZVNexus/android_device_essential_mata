@@ -33,8 +33,6 @@
 /dev/hbtp_vm                                    u:object_r:hbtp_device:s0
 /dev/sg[0-9]+                                   u:object_r:sg_device:s0
 /dev/sensors                                    u:object_r:sensors_device:s0
-/dev/mnh_sm                                     u:object_r:easel_device:s0
-/dev/easelcomm-client                           u:object_r:easel_device:s0
 /dev/pn81a                                      u:object_r:pn81a_device:s0
 
 # dev socket nodes
@@ -48,7 +46,6 @@
 /dev/socket/ims_qmid                            u:object_r:ims_socket:s0
 /dev/socket/ims_datad                           u:object_r:ims_socket:s0
 /dev/socket/ipacm_log_file                      u:object_r:ipacm_socket:s0
-/dev/socket/cnd                                 u:object_r:cnd_socket:s0
 /dev/socket/msm_irqbalance                      u:object_r:irqbalance_socket:s0
 /dev/socket/thermal-send-client                 u:object_r:thermal_socket:s0
 /dev/socket/thermal-recv-client                 u:object_r:thermal_socket:s0
@@ -154,7 +151,6 @@
 /vendor/bin/ipacm               u:object_r:hal_tetheroffload_default_exec:s0
 /vendor/bin/ipacm-diag          u:object_r:hal_tetheroffload_default_exec:s0
 /vendor/bin/qmuxd               u:object_r:qmuxd_exec:s0
-/vendor/bin/cnd                 u:object_r:cnd_exec:s0
 /vendor/bin/ATFWD-daemon        u:object_r:atfwd_exec:s0
 # Remove after b/38447389
 /vendor/bin/esed                u:object_r:esed_exec:s0
@@ -271,7 +267,6 @@
 /persist/data(/.*)?       u:object_r:persist_data_file:s0
 /persist/display(/.*)?    u:object_r:persist_display_file:s0
 /persist/drm(/.*)?        u:object_r:persist_drm_file:s0
-/persist/elabel(/.*)?     u:object_r:persist_elabel_file:s0
 /persist/haptics(/.*)?    u:object_r:persist_haptics_file:s0
 /persist/hlos_rfs(/.*)?   u:object_r:persist_rfs_file:s0
 /persist/rfs(/.*)?        u:object_r:persist_rfs_file:s0

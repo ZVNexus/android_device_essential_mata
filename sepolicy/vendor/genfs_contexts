@@ -47,7 +47,6 @@ genfscon sysfs /module/diagchar/parameters/timestamp_switch             u:object
 genfscon sysfs /devices/virtual/graphics/fb0                            u:object_r:sysfs_graphics:s0
 genfscon sysfs /devices/virtual/graphics/fb1                            u:object_r:sysfs_graphics:s0
 genfscon sysfs /devices/virtual/net                                     u:object_r:sysfs_net:s0
-genfscon sysfs /devices/virtual/misc/mnh_sm                             u:object_r:sysfs_easel:s0
 genfscon sysfs /devices/soc/8c0000.qcom,msm-cam                         u:object_r:sysfs_camera:s0
 genfscon sysfs /devices/soc0                                            u:object_r:sysfs_soc:s0
 genfscon sysfs /devices/soc/caa0000.qcom,jpeg                           u:object_r:sysfs_camera:s0
@@ -58,7 +57,6 @@ genfscon sysfs /bus/msm_subsys                                          u:object
 genfscon sysfs /module/subsystem_restart                                u:object_r:sysfs_msm_subsys_restart:s0
 genfscon sysfs /kernel/boot_adsp/boot                                   u:object_r:sysfs_msm_subsys:s0
 genfscon sysfs /kernel/boot_slpi/boot                                   u:object_r:sysfs_msm_subsys:s0
-genfscon sysfs /devices/soc/c1b7000.i2c/i2c-9/9-0008                    u:object_r:sysfs_easel:s0
 genfscon sysfs /class/typec                                             u:object_r:sysfs_usb_c:s0
 genfscon sysfs /class/typec/usbc0                                       u:object_r:sysfs_usb_c:s0
 genfscon sysfs /devices/soc/a800000.ssusb/a800000.dwc3/xhci-hcd.0.auto/usb1 u:object_r:sysfs_usb_device:s0

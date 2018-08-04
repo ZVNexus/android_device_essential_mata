@@ -10,9 +10,6 @@ user=system seinfo=platform name=com.qualcomm.telephony domain=qtelephony type=s
 user=_app seinfo=tango name=com.google.tango* domain=tango_core type=app_data_file levelFrom=user
 user=_app seinfo=arcore name=com.google.ar.core* domain=tango_core type=app_data_file levelFrom=user
 
-# A fallback in case tango_core is missing something critical that untrusted_app provides
-user=_app seinfo=tango name=com.google.tango:app domain=untrusted_app type=app_data_file levelFrom=user
-
 # Hardware Info Collection
 user=_app seinfo=platform name=com.google.android.hardwareinfo domain=hardware_info_app type=app_data_file levelFrom=user
 
@@ -22,5 +19,3 @@ user=_app seinfo=google name=com.google.android.GoogleCamera domain=google_camer
 #Needed for time service apk
 user=_app seinfo=platform name=com.qualcomm.timeservice domain=timeservice_app type=app_data_file
 
-# Domain for easelservice app
-user=_app seinfo=easel name=com.google.android.imaging.easel.service domain=easelservice_app type=app_data_file levelFrom=user
