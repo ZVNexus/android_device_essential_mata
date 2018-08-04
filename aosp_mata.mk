@@ -18,6 +18,7 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
+
 $(call inherit-product, device/essential/mata/device.mk)
 $(call inherit-product-if-exists, vendor/essential/mata/mata-vendor.mk)
 

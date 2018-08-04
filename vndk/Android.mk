@@ -1,4 +1,4 @@
-ifneq ($(filter muskie walleye mata, $(TARGET_DEVICE)),)
+ifneq ($(filter mata, aosp_mata $(TARGET_DEVICE)),)
 LOCAL_PATH := $(call my-dir)
 
 ifndef BOARD_VNDK_VERSION
@@ -7,6 +7,8 @@ VNDK_SP_LIBRARIES += \
     android.hardware.graphics.allocator@2.0\
     android.hardware.graphics.mapper@2.0\
     android.hardware.graphics.common@1.0\
+    android.hidl.memory@1.0\
+    android.hidl.memory@1.0-impl\
     libhwbinder\
     libbase\
     libcutils\
@@ -28,8 +30,11 @@ VNDK_SP_LIBRARIES += \
     libRSCpuRef\
     libft2\
     libpng\
+    libhidlmemory\
+    libion\
 
 endif
+
 
 define add-vndk-sp-lib
 include $$(CLEAR_VARS)
@@ -57,4 +62,5 @@ endef
 
 $(foreach lib,$(VNDK_SP_LIBRARIES),\
     $(eval $(call add-vndk-sp-lib,$(lib))))
-endif # if TARGET_DEVICE is muskie or walleye
+endif # if TARGET_DEVICE is mata or aosp_mata
+
