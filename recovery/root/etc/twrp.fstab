@@ -1,0 +1,13 @@
+#<src>                                   <mnt_point>        <type> <mnt_flags and options>                                                <fs_mgr_flags>
+/dev/block/bootdevice/by-name/boot       /boot              emmc   defaults                                                               wait,slotselect
+/dev/block/bootdevice/by-name/system     /system            ext4   ro,barrier=1                                                           wait,slotselect,verify
+/dev/block/bootdevice/by-name/system     /system_image      emmc
+/dev/block/bootdevice/by-name/vendor     /vendor            ext4   ro,barrier=1,discard                                                   wait,slotselect
+/dev/block/bootdevice/by-name/vendor     /vendor_image      emmc     
+/dev/block/bootdevice/by-name/userdata   /data              ext4   noatime,nosuid,nodev,barrier=1,noauto_da_alloc                         wait,check,formattable,encryptable=footer
+/dev/block/bootdevice/by-name/userdata   /data              f2fs   noatime,nosuid,nodev,nodiratime,fsync_mode=nobarrier,background_gc=off wait,check,formattable,encryptable=footer
+/dev/block/bootdevice/by-name/misc       /misc              emmc   defaults                                                               defaults
+/dev/block/bootdevice/by-name/modem      /firmware          vfat   ro,shortname=lower,uid=1000,gid=1000,dmask=222,fmask=333,context=u:object_r:firmware_file:s0 wait,slotselect,display="Firmware"
+
+# USB OTG
+/devices/platform/soc/a800000.ssusb/a800000.dwc3/xhci-hcd.0.auto*      auto       auto         defaults                                   voldmanaged=usb:auto,display="USB-OTG"
