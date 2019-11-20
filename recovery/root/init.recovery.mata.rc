@@ -13,6 +13,13 @@ on fs
 on early-boot
     start boot-1-0   
     start hwservicemanager
+    mkdir /data/vendor/hbtp 0777
+
+on property:sys.grip.status=*
+    exec_background u:r:hbtp_cmd:s0 -- /sbin/sh /sbin/hbtp_cmd.sh grip ${sys.grip.status}
+
+on property:persist.touch.smoothness=*
+    exec_background u:r:hbtp_cmd:s0 -- /sbin/sh /sbin/hbtp_cmd.sh smoothness ${persist.touch.smoothness}
 
 service hwservicemanager /sbin/hwservicemanager
     user root
@@ -31,4 +38,12 @@ service servicemanager /sbin/servicemanager
 service boot-1-0 /sbin/android.hardware.boot@1.0-service
     user root
     group root
+    seclabel u:r:recovery:s0
+
+service hbtp /sbin/hbtp_daemon
+    class main
+    user root
+    group root
+    capabilities SYS_NICE
+    disabled
     seclabel u:r:recovery:s0
