@@ -1,0 +1,8 @@
+[
+  {
+    "remote": "github",
+    "repository": "ZVNexus/android_kernel_essential_msm8998",
+    "target_path": "kernel/essential/msm8998",
+    "revision": "lineage-16.0"
+  }
+]
