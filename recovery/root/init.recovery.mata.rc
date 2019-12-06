@@ -36,8 +36,16 @@ on early-boot
     chmod 0666 /sys/kernel/boot_slpi/boot
     write /sys/kernel/boot_adsp/boot 1
     write /sys/kernel/boot_slpi/boot 1
+    mkdir /data/misc/hbtp 0777
     mkdir /hbtp 0777
+    start sbinadsprpcd
     start hbtp
+
+service sbinadsprpcd /sbin/adsprpcd
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
 
 service hbtp /sbin/hbtp.sh
     user root
