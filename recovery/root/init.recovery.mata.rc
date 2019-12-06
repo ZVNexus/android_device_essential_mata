@@ -27,9 +27,6 @@
 
 import /init.recovery.usb.rc
 
-on init
-    write /sys/class/backlight/panel0-backlight/brightness 200
-
 on fs
     wait /dev/block/platform/soc/1da4000.ufshc
     symlink /dev/block/platform/soc/1da4000.ufshc /dev/block/bootdevice
