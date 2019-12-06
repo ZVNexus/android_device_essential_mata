@@ -30,3 +30,17 @@ import /init.recovery.usb.rc
 on fs
     wait /dev/block/platform/soc/1da4000.ufshc
     symlink /dev/block/platform/soc/1da4000.ufshc /dev/block/bootdevice
+
+on early-boot
+    chmod 0666 /sys/kernel/boot_adsp/boot
+    chmod 0666 /sys/kernel/boot_slpi/boot
+    write /sys/kernel/boot_adsp/boot 1
+    write /sys/kernel/boot_slpi/boot 1
+    mkdir /hbtp 0777
+    start hbtp
+
+service hbtp /sbin/hbtp.sh
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
