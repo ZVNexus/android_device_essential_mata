@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2017-2018 The LineageOS Project
+# Copyright (C) 2019 The Dirty Unicorns Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -651,17 +652,6 @@ PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1 \
     android.hardware.biometrics.fingerprint@2.1-service.sony
 
-ifneq ($(TARGET_LEGACY_KEYMASTER),true)
-# Keymaster
-PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-impl-qti \
-    android.hardware.keymaster@3.0-service-qti
-
-# Gatekeeper
-PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-impl-qti \
-    android.hardware.gatekeeper@1.0-service-qti
-else
 # Keymaster
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl \
@@ -671,7 +661,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl \
     android.hardware.gatekeeper@1.0-service
-endif
 
 # DRM
 PRODUCT_PACKAGES += \
