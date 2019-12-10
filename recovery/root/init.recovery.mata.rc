@@ -9,7 +9,7 @@ on fs
     chmod 0664 /dev/ion
     chown system system /dev/ion
     setprop ro.hardware.bootctrl msm8998
-    install_keyring
+#   install_keyring
     start adbd
     start servicemanager
 #   start keymaster-3-0
@@ -26,7 +26,7 @@ on early-boot
     start sbinadsprpcd
     start hbtp
 
-    start sbinqseecomd
+#   start sbinqseecomd
 
 service sbinqseecomd /sbin/qseecomd
     oneshot
