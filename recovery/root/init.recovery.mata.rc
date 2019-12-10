@@ -12,8 +12,8 @@ on fs
     install_keyring
     start adbd
     start servicemanager
-    start keymaster-3-0
-    start gatekeeper-1-0
+#   start keymaster-3-0
+#   start gatekeeper-1-0
 
 on early-boot
     # Touch
