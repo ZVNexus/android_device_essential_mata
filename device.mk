@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2018 The Android Open-Source Project
+# Copyright (C) 2018-2020 The Android Open-Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -36,13 +36,12 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.adb.secure=1
 
 PRODUCT_SOONG_NAMESPACES += \
-    device/google/wahoo \
-    vendor/google/camera \
+    device/essential/mata \
     hardware/google/pixel \
     hardware/qcom/msm8998
 
 PRODUCT_COPY_FILES += \
-    device/google/wahoo/default-permissions.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default-permissions/default-permissions.xml \
+    device/essential/mata/default-permissions.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default-permissions/default-permissions.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.software.verified_boot.xml:system/etc/permissions/android.software.verified_boot.xml
 
@@ -57,7 +56,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     messaging
 
-LOCAL_PATH := device/google/wahoo
+LOCAL_PATH := device/essential/mata
 
 SRC_MEDIA_HAL_DIR := hardware/qcom/media/msm8998
 SRC_DISPLAY_HAL_DIR := hardware/qcom/display/msm8998
@@ -68,10 +67,10 @@ TARGET_SYSTEM_PROP := $(TARGET_SYSTEM_PROP) $(LOCAL_PATH)/system.prop
 # Get kernel-headers
 $(call inherit-product, hardware/qcom/msm8998/msm8998.mk)
 
-$(call inherit-product, device/google/wahoo/utils.mk)
+$(call inherit-product, device/essential/mata/utils.mk)
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-    LOCAL_KERNEL := device/google/wahoo-kernel/Image.lz4-dtb
+    LOCAL_KERNEL := device/essential/mata-kernel/Image.lz4-dtb
 else
     LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
@@ -85,7 +84,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel \
     $(LOCAL_PATH)/init.recovery.hardware.rc:recovery/root/init.recovery.$(PRODUCT_HARDWARE).rc \
     $(LOCAL_PATH)/init.hardware.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(PRODUCT_HARDWARE).rc \
-    $(LOCAL_PATH)/init.hardware.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.wahoo.usb.rc \
+    $(LOCAL_PATH)/init.hardware.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.mata.usb.rc \
     $(LOCAL_PATH)/ueventd.hardware.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc \
     $(LOCAL_PATH)/init.elabel.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/init.elabel.sh \
     $(LOCAL_PATH)/init.power.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.power.sh \
@@ -198,7 +197,7 @@ PRODUCT_PACKAGES += \
 
 # health HAL
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.0-service.wahoo
+    android.hardware.health@2.0-service.mata
 
 # Audio fluence, ns, aec property, voice and media volume steps
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -335,12 +334,12 @@ PRODUCT_PACKAGES += \
 
 # Light HAL
 PRODUCT_PACKAGES += \
-    lights.wahoo \
+    lights.mata \
     android.hardware.light@2.0-impl:64 \
     android.hardware.light@2.0-service
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hardware.lights=wahoo
+    ro.hardware.lights=mata
 
 # eSE applet HALs
 PRODUCT_PACKAGES += \
@@ -389,10 +388,10 @@ PRODUCT_PACKAGES += \
     SecureElement
 
 PRODUCT_COPY_FILES += \
-    device/google/wahoo/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_PRODUCT)/etc/libnfc-nci.conf \
+    device/essential/mata/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_PRODUCT)/etc/libnfc-nci.conf \
 
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.1-service.wahoo
+    android.hardware.usb@1.1-service.mata
 
 PRODUCT_PACKAGES += \
     libmm-omxcore \
@@ -424,7 +423,7 @@ PRODUCT_COPY_FILES += \
 
 # Default permission grant exceptions
 PRODUCT_COPY_FILES += \
-    device/google/wahoo/default-permissions.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default-permissions/default-permissions.xml
+    device/essential/mata/default-permissions.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default-permissions/default-permissions.xml
 
 PRODUCT_PACKAGES += \
     fs_config_dirs \
@@ -443,7 +442,7 @@ PRODUCT_PACKAGES += \
 
 # Vibrator HAL
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.2-service.wahoo
+    android.hardware.vibrator@1.2-service.mata
 
 # Thermal HAL
 PRODUCT_PACKAGES += \
@@ -612,7 +611,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
 PRODUCT_COPY_FILES += \
-    device/google/wahoo/fstab.hardware:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.$(PRODUCT_HARDWARE)
+    device/essential/mata/fstab.hardware:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.$(PRODUCT_HARDWARE)
 
 # Use the default charger mode images
 PRODUCT_PACKAGES += \
@@ -626,7 +625,7 @@ endif
 
 # Dumpstate HAL
 PRODUCT_PACKAGES += \
-    android.hardware.dumpstate@1.0-service.wahoo
+    android.hardware.dumpstate@1.0-service.mata
 
 # Use daemon to detect folio open/close
 PRODUCT_PACKAGES += \
@@ -647,7 +646,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Privileged permissions whitelist
 PRODUCT_COPY_FILES += \
-    device/google/wahoo/permissions/privapp-permissions-aosp_wahoo.xml:system/etc/permissions/privapp-permissions-aosp_wahoo.xml
+    device/essential/mata/permissions/privapp-permissions-aosp_mata.xml:system/etc/permissions/privapp-permissions-aosp_mata.xml
 
 PRODUCT_PACKAGES += \
     ipacm
@@ -662,7 +661,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Easel device feature
 PRODUCT_COPY_FILES += \
-    device/google/wahoo/permissions/com.google.hardware.camera.easel.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.google.hardware.camera.easel.xml
+    device/essential/mata/permissions/com.google.hardware.camera.easel.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.google.hardware.camera.easel.xml
 
 # QC time-daemon to use persist
 PRODUCT_PROPERTY_OVERRIDES += \

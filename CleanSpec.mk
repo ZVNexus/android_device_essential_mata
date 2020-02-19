@@ -1,4 +1,4 @@
-# Copyright 2017 The Android Open Source Project
+# Copyright 2017-2020 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -48,7 +48,7 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/bin/init.power.sh)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/bin/init.radio.sh)
 
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/root/init.$(PRODUCT_HARDWARE).rc)
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/root/init.wahoo.usb.rc)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/root/init.mata.usb.rc)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/root/init.$(PRODUCT_HARDWARE).diag.rc)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/root/ueventd.$(PRODUCT_HARDWARE).rc)
 
@@ -128,8 +128,8 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/vndk-sp-*)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/etc/lowi.conf)
 
 # Vibrator HAL 1.0
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/init/android.hardware.vibrator@1.0-service.wahoo.rc)
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/bin/hw/android.hardware.vibrator@1.0-service.wahoo)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/init/android.hardware.vibrator@1.0-service.mata.rc)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/bin/hw/android.hardware.vibrator@1.0-service.mata)
 
 # Broadcast Radio HAL impl 1.0
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib/hw/android.hardware.broadcastradio@1.0-impl.so)
@@ -152,8 +152,8 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/root/init.recovery.$(PRODUCT_HARDWA
 # Remove build and default prop.
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/*.prop)
 
-# android.hardware.thermal@1.0-wahoo.so can be a static lib
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib/hw/android.hardware.thermal@1.0-wahoo.so)
+# android.hardware.thermal@1.0-mata.so can be a static lib
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib/hw/android.hardware.thermal@1.0-mata.so)
 
 # Remove android.hardware.keymaster@4.0-service
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/bin/hw/android.hardware.keymaster@4.0-service)
@@ -168,8 +168,8 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/init/android.hardware.po
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/bin/hw/android.hardware.power*)
 
 # Remove Vibrator HAL 1.1
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/init/android.hardware.vibrator@1.1-service.wahoo.rc)
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/bin/hw/android.hardware.vibrator@1.1-service.wahoo)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/init/android.hardware.vibrator@1.1-service.mata.rc)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/bin/hw/android.hardware.vibrator@1.1-service.mata)
 
 # Remove all HALs (actual bitness now being specified)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib/hw/*)
@@ -201,7 +201,7 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/etc/libnfc-nci.conf)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib/hw/android.hardware.graphics.mapper@2.0-impl.so)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib64/hw/android.hardware.graphics.mapper@2.0-impl.so)
 # Rename power HAL
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/init/android.hardware.power@1.2-service.wahoo-libperfmgr.rc)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/init/android.hardware.power@1.2-service.mata-libperfmgr.rc)
 
 # Remove obsolete android.hardware.boot@1.0-impl-wrapper.recovery.so
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/recovery/root/system/lib64/hw/android.hardware.boot@1.0-impl-wrapper.recovery.so)

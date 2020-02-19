@@ -1,4 +1,4 @@
-# Copyright (C) 2016 The Android Open Source Project
+# Copyright (C) 2016-2020 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ LOCAL_CFLAGS := $(common_flags) \
     -DLOG_TAG=\"qdlights\" \
     -DDEFAULT_LOW_PERSISTENCE_MODE_BRIGHTNESS=$(DEFAULT_LOW_PERSISTENCE_MODE_BRIGHTNESS)
 LOCAL_CFLAGS += -Wall -Werror
-LOCAL_MODULE := lights.wahoo
+LOCAL_MODULE := lights.mata
 LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_SHARED_LIBRARY)

@@ -1,5 +1,5 @@
 #
-# Copyright 2017-2020 The Android Open Source Project
+# Copyright 2020 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,9 +14,8 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := $(call my-dir)
+PRODUCT_MAKEFILES := \
+    $(LOCAL_DIR)/aosp_mata.mk
 
-ifeq ($(USES_DEVICE_ESSENTIAL_MATA),true)
-  subdir_makefiles=$(call first-makefiles-under,$(LOCAL_PATH))
-  $(foreach mk,$(subdir_makefiles),$(info including $(mk) ...)$(eval include $(mk)))
-endif
+COMMON_LUNCH_CHOICES := \
+    aosp_mata-userdebug

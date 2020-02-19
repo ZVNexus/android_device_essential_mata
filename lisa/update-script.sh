@@ -9,7 +9,7 @@ build_kernel() {
     . ./build.config
     make ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} ${DEFCONFIG}
     make ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} -j32
-    cp $LOCAL_KERNEL_HOME/arch/arm64/boot/Image.lz4-dtb arch/arm64/boot/dtbo.img `find . -name '*.ko'` $ANDROID_BUILD_TOP/device/google/wahoo-kernel
+    cp $LOCAL_KERNEL_HOME/arch/arm64/boot/Image.lz4-dtb arch/arm64/boot/dtbo.img `find . -name '*.ko'` $ANDROID_BUILD_TOP/device/essential/mata-kernel
 }
 
 build_image() {

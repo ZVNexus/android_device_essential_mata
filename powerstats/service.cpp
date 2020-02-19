@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 The Android Open Source Project
+ * Copyright (C) 2018-2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.power.stats@1.0-service.pixel"
+#define LOG_TAG "android.hardware.power.stats@1.0-service.mata"
 
 #include <android-base/properties.h>
 #include <android/log.h>
@@ -51,8 +51,8 @@ using android::hardware::google::pixel::powerstats::PowerEntityConfig;
 using android::hardware::google::pixel::powerstats::StateResidencyConfig;
 using android::hardware::google::pixel::powerstats::WlanStateResidencyDataProvider;
 
-// Wahoo specific
-using android::device::google::wahoo::powerstats::EaselStateResidencyDataProvider;
+// Mata specific
+using android::device::essential::mata::powerstats::EaselStateResidencyDataProvider;
 
 int main(int /* argc */, char ** /* argv */) {
     ALOGI("power.stats service 1.0 is starting.");

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 The Android Open Source Project
+ * Copyright (C) 2018-2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,8 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#ifndef DEVICE_GOOGLE_WAHOO_POWERSTATS_EASELSTATERESIDENCYDATAPROVIDER_H
-#define DEVICE_GOOGLE_WAHOO_POWERSTATS_EASELSTATERESIDENCYDATAPROVIDER_H
+#ifndef DEVICE_ESSENTIAL_MATA_POWERSTATS_EASELSTATERESIDENCYDATAPROVIDER_H
+#define DEVICE_ESSENTIAL_MATA_POWERSTATS_EASELSTATERESIDENCYDATAPROVIDER_H
 
 #include <pixelpowerstats/PowerStats.h>
 
@@ -24,8 +24,8 @@ using android::hardware::google::pixel::powerstats::IStateResidencyDataProvider;
 
 namespace android {
 namespace device {
-namespace google {
-namespace wahoo {
+namespace essential {
+namespace mata {
 namespace powerstats {
 
 class EaselStateResidencyDataProvider : public IStateResidencyDataProvider {
@@ -44,9 +44,9 @@ class EaselStateResidencyDataProvider : public IStateResidencyDataProvider {
 };
 
 }  // namespace powerstats
-}  // namespace wahoo
-}  // namespace google
+}  // namespace mata
+}  // namespace essential
 }  // namespace device
 }  // namespace android
 
-#endif  // DEVICE_GOOGLE_WAHOO_POWERSTATS_EASELSTATERESIDENCYDATAPROVIDER_H
+#endif  // DEVICE_ESSENTIAL_MATA_POWERSTATS_EASELSTATERESIDENCYDATAPROVIDER_H

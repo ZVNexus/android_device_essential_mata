@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2016 The Android Open-Source Project
+# Copyright (C) 2016-2020 The Android Open-Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -60,8 +60,8 @@ BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 BOARD_USES_METADATA_PARTITION := true
 
 # Partitions (listed in the file) to be wiped under recovery.
-TARGET_RECOVERY_WIPE := device/google/wahoo/recovery.wipe
-TARGET_RECOVERY_FSTAB := device/google/wahoo/fstab.hardware
+TARGET_RECOVERY_WIPE := device/essential/mata/recovery.wipe
+TARGET_RECOVERY_FSTAB := device/essential/mata/fstab.hardware
 
 BOARD_AVB_ENABLE := true
 
@@ -79,7 +79,7 @@ BOARD_PERSISTIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 # DTBO partition definitions
-BOARD_PREBUILT_DTBOIMAGE := device/google/wahoo-kernel/dtbo.img
+BOARD_PREBUILT_DTBOIMAGE := device/essential/mata-kernel/dtbo.img
 BOARD_DTBOIMG_PARTITION_SIZE := 8388608
 
 TARGET_COPY_OUT_VENDOR := vendor
@@ -89,17 +89,17 @@ BOARD_USES_SYSTEM_OTHER_ODEX := true
 
 BOARD_ROOT_EXTRA_FOLDERS := persist firmware metadata
 
-BOARD_VENDOR_SEPOLICY_DIRS += device/google/wahoo/sepolicy/vendor
-BOARD_PLAT_PUBLIC_SEPOLICY_DIR := device/google/wahoo/sepolicy/public
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR := device/google/wahoo/sepolicy/private
-BOARD_VENDOR_SEPOLICY_DIRS += device/google/wahoo/sepolicy/verizon
+BOARD_VENDOR_SEPOLICY_DIRS += device/essential/mata/sepolicy/vendor
+BOARD_PLAT_PUBLIC_SEPOLICY_DIR := device/essential/mata/sepolicy/public
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR := device/essential/mata/sepolicy/private
+BOARD_VENDOR_SEPOLICY_DIRS += device/essential/mata/sepolicy/verizon
 
-TARGET_FS_CONFIG_GEN := device/google/wahoo/config.fs
+TARGET_FS_CONFIG_GEN := device/essential/mata/config.fs
 
 QCOM_BOARD_PLATFORMS += msm8998
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BOARD_USES_SDM845_BLUETOOTH_HAL := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/google/wahoo/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/essential/mata/bluetooth
 
 # Camera
 TARGET_USES_AOSP := true
@@ -138,8 +138,8 @@ AUDIO_FEATURE_ENABLED_SND_MONITOR := true
 AUDIO_FEATURE_ENABLED_USB_TUNNEL := true
 BOARD_ROOT_EXTRA_SYMLINKS := /vendor/lib/dsp:/dsp
 
-# Include whaoo modules
-USES_DEVICE_GOOGLE_WAHOO := true
+# Include Mata modules
+USES_DEVICE_ESSENTIAL_MATA := true
 
 # Graphics
 TARGET_USES_GRALLOC1 := true
@@ -157,10 +157,10 @@ TARGET_USES_COLOR_METADATA := true
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
 # Vendor Interface Manifest
-DEVICE_MANIFEST_FILE := device/google/wahoo/manifest.xml
-DEVICE_MATRIX_FILE := device/google/wahoo/compatibility_matrix.xml
-DEVICE_FRAMEWORK_MANIFEST_FILE := device/google/wahoo/framework_manifest.xml
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := device/google/wahoo/device_framework_matrix.xml
+DEVICE_MANIFEST_FILE := device/essential/mata/manifest.xml
+DEVICE_MATRIX_FILE := device/essential/mata/compatibility_matrix.xml
+DEVICE_FRAMEWORK_MANIFEST_FILE := device/essential/mata/framework_manifest.xml
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := device/essential/mata/device_framework_matrix.xml
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 
 # Use mke2fs to create ext4 images

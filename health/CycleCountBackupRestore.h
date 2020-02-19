@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 The Android Open Source Project
+ * Copyright (C) 2018-2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef DEVICE_GOOGLE_WAHOO_HEALTH_CYCLECOUNTBACKUPRESTORE_H
-#define DEVICE_GOOGLE_WAHOO_HEALTH_CYCLECOUNTBACKUPRESTORE_H
+#ifndef DEVICE_ESSENTIAL_MATA_HEALTH_CYCLECOUNTBACKUPRESTORE_H
+#define DEVICE_ESSENTIAL_MATA_HEALTH_CYCLECOUNTBACKUPRESTORE_H
 
 #include <string>
 #include <android-base/file.h>
@@ -23,8 +23,8 @@
 #include <android-base/logging.h>
 
 namespace device {
-namespace google {
-namespace wahoo {
+namespace essential {
+namespace mata {
 namespace health {
 
 static constexpr int kBucketCount = 8;
@@ -47,8 +47,8 @@ private:
 };
 
 } // namespace health
-} // namespace wahoo
-} // namespace google
+} // namespace mata
+} // namespace essential
 } // namespace device
 
-#endif // #ifndef DEVICE_GOOGLE_WAHOO_HEALTH_CYCLECOUNTBACKUPRESTORE_H
+#endif // #ifndef DEVICE_ESSENTIAL_MATA_HEALTH_CYCLECOUNTBACKUPRESTORE_H

@@ -1,5 +1,5 @@
 #
-# Copyright 2016 The Android Open Source Project
+# Copyright 2016-2020 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,8 +16,8 @@
 
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
-LOCAL_MODULE := android.hardware.dumpstate@1.0-service.wahoo
-LOCAL_INIT_RC := android.hardware.dumpstate@1.0-service.wahoo.rc
+LOCAL_MODULE := android.hardware.dumpstate@1.0-service.mata
+LOCAL_INIT_RC := android.hardware.dumpstate@1.0-service.mata.rc
 LOCAL_MODULE_RELATIVE_PATH := hw
 
 LOCAL_SRC_FILES := \

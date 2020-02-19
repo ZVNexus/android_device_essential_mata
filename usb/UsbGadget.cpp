@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 The Android Open Source Project
+ * Copyright (C) 2018-2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.usb.gadget@1.0-service.wahoo"
+#define LOG_TAG "android.hardware.usb.gadget@1.0-service.mata"
 
 #include "UsbGadget.h"
 #include <dirent.h>
