@@ -70,7 +70,7 @@ $(call inherit-product, hardware/qcom/msm8998/msm8998.mk)
 $(call inherit-product, device/essential/mata/utils.mk)
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-    LOCAL_KERNEL := device/essential/mata-kernel/Image.lz4-dtb
+    LOCAL_KERNEL := device/essential/mata-kernel/Image.gz-dtb
 else
     LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
