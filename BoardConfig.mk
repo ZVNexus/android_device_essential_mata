@@ -1,4 +1,3 @@
-#
 # Copyright (C) 2019-2020 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,7 +11,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
 # Platform
 TARGET_ARCH := arm64
@@ -39,17 +37,15 @@ BOARD_KERNEL_CMDLINE := androidboot.hardware=mata user_debug=31 ehci-hcd.park=3
 BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1 service_locator.enable=1
 BOARD_KERNEL_CMDLINE += swiotlb=2048 androidboot.configfs=true
 BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=a800000.dwc3 cma=32M@0-0xffffffff
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x02000000
 BOARD_RAMDISK_OFFSET := 0x02200000
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-TARGET_KERNEL_SOURCE := kernel/essential/msm8998
-TARGET_KERNEL_CONFIG := mata_defconfig
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 
 # Partitions
-BOARD_BOOTIMAGE_PARTITION_SIZE := 536870912
+BOARD_BOOTIMAGE_PARTITION_SIZE := 0x04000000
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 4294967296
 BOARD_VENDORIMAGE_PARTITION_SIZE := 1073741824
 BOARD_FLASH_BLOCK_SIZE := 0x40000
@@ -66,10 +62,7 @@ TARGET_USES_MKE2FS := true
 # Treble
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 BOARD_VNDK_VERSION := current
-PRODUCT_ACTIONABLE_COMPATIBLE_PROPERTY_DISABLE := true
-PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 PRODUCT_FULL_TREBLE_OVERRIDE := true
-PRODUCT_SHIPPING_API_LEVEL := 25
 
 # TWRP
 RECOVERY_SDCARD_ON_DATA := true

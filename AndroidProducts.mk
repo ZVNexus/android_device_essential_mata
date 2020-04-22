@@ -15,4 +15,7 @@
 #
 
 PRODUCT_MAKEFILES += \
-    device/essential/mata/omni_mata.mk
+    device/essential/mata/mata.mk
+
+COMMON_LUNCH_CHOICES := \
+    mata-userdebug

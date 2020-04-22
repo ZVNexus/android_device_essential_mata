@@ -14,6 +14,11 @@
 # limitations under the License.
 #
 
+PRODUCT_SHIPPING_API_LEVEL := 25
+
+# Get kernel-headers
+$(call inherit-product, hardware/qcom/msm8998/msm8998.mk)
+
 # AAPT
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := 560dpi
@@ -37,7 +42,6 @@ AB_OTA_POSTINSTALL_CONFIG += \
 PRODUCT_PACKAGES += \
     otapreopt_script \
     cppreopts.sh \
-    brillo_update_payload \
     update_engine \
     update_engine_sideload \
     update_verifier \
@@ -61,3 +65,9 @@ PRODUCT_PACKAGES += \
     libicuuc.vendor \
     libstdc++.vendor \
     vndk_package
+
+# Kernel
+LOCAL_KERNEL := device/essential/mata/Image.gz-dtb
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_KERNEL):kernel
