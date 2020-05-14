@@ -34,7 +34,6 @@ on charger
     setprop persist.sys.usb.config mass_storage
     start hvdcp_opti
     setprop sys.usb.configfs 1
-    load_system_props
     write /sys/class/leds/lcd-backlight/brightness  80
     write /sys/devices/system/cpu/cpu1/online 0
     write /sys/devices/system/cpu/cpu2/online 0
@@ -137,7 +136,6 @@ on boot
     start rmt_storage
     start rfs_access
 
-    insmod /vendor/lib/modules/qca_cld3_wlan.ko
     chown system shell /sys/class/sidecar/power_control
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/type
@@ -306,7 +304,7 @@ on fs
     chmod 0770 /mnt/vendor/persist/rfs/apq/gnss
     chmod 0770 /mnt/vendor/persist/hlos_rfs
 
-    restorecon_recursive --force /mnt/vendor/persist
+    restorecon_recursive /mnt/vendor/persist
     mkdir /mnt/vendor/persist/data 0700 system system
     chown system system /mnt/vendor/persist/rfs/shared
     chown system system /mnt/vendor/persist/rfs/msm
@@ -572,6 +570,15 @@ on property:persist.sys.pil_proxy_timeout=*
 
 on property:persist.sys.ssr.restart_level=*
     start ssr_setup
+
+on property:ro.boot.revision=1.7
+   setprop ro.hardware.nfc_nci cxd22xx
+
+on property:ro.boot.revision=1.9
+   setprop ro.hardware.nfc_nci cxd22xx
+
+on property:ro.boot.revision=1.8
+   setprop ro.hardware.nfc_nci msm8998
 
 on property:sys.boot_completed=1
     write /dev/kmsg "Boot completed "
@@ -1134,22 +1141,6 @@ service pd_mapper /vendor/bin/pd-mapper
 
 on property:vendor.ims.QMI_DAEMON_STATUS=1
     start imsdatadaemon
-
-service ims_rtp_daemon /vendor/bin/ims_rtp_daemon
-   class main
-   user system
-   group radio diag inet log
-   disabled
-
-service imsrcsservice /vendor/bin/imsrcsd
-   class hal
-   user system
-   group radio diag inet log
-   disabled
-
-on property:vendor.ims.DATA_DAEMON_STATUS=1
-    start ims_rtp_daemon
-    start imsrcsservice
 
 service hvdcp_opti /vendor/bin/hvdcp_opti
     class main

@@ -1,7 +1,5 @@
-LOCAL_PATH:= $(call my-dir)
+LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
-
-# files that live under device/qcom/common/rootdir/etc/
 
 include $(CLEAR_VARS)
 LOCAL_MODULE       := init.crda.sh
@@ -16,7 +14,7 @@ LOCAL_MODULE       := init.mata.rc
 LOCAL_MODULE_TAGS  := optional
 LOCAL_MODULE_CLASS := ETC
 LOCAL_SRC_FILES    := etc/init.mata.rc
-LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/init/hw
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_OVERLAY_ETC)/init/hw
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
