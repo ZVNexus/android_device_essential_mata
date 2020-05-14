@@ -57,7 +57,6 @@ allow qti_init_shell pstorefs:file r_file_perms;
 allow qti_init_shell kernel:system syslog_read;
 
 set_prop(qti_init_shell, nfc_service_prop)
-set_prop(qti_init_shell, build_prop)
 set_prop(qti_init_shell, system_prop)
 set_prop(qti_init_shell, system_radio_prop)
 set_prop(qti_init_shell, ctl_hbtp_prop)
