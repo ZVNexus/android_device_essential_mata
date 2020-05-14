@@ -92,6 +92,7 @@ I420CC := libI420colorconvert
 #INIT
 INIT += init.qcom.sensor.sh
 INIT += init.mata.rc
+INIT += init.mata.extras.rc
 INIT += init.recovery.mata.rc
 INIT += init.qcom.sh
 INIT += vold.fstab

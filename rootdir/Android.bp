@@ -1,0 +1,5 @@
+prebuilt_etc {
+    name: "init.mata.extras.rc",
+    src: "etc/init.mata.extras.rc",
+    sub_dir: "init/hw",
+}
