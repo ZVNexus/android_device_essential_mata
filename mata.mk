@@ -459,10 +459,6 @@ PRODUCT_COPY_FILES += \
 # is happening too late
 PRODUCT_SHIPPING_API_LEVEL := 25
 
-# Custom bootanimation
-PRODUCT_COPY_FILES += \
-   device/essential/mata/bootanimation.zip:system/media/bootanimation.zip
-
 $(call inherit-product-if-exists, vendor/essential/mata/fpc_fingerprints/device/device.mk)
 
 # Silenced verbose logs
