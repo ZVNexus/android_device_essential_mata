@@ -1,0 +1,60 @@
+# AptX
+system/lib64/libaptX_encoder.so
+system/lib64/libaptXHD_encoder.so
+
+# Hotword Enrollment
+-system/priv-app/HotwordEnrollmentOKGoogleWCD9335/HotwordEnrollmentOKGoogleWCD9335.apk;PRESIGNED
+-system/priv-app/HotwordEnrollmentTGoogleWCD9335/HotwordEnrollmentTGoogleWCD9335.apk;PRESIGNED
+-system/priv-app/HotwordEnrollmentXGoogleWCD9335/HotwordEnrollmentXGoogleWCD9335.apk;PRESIGNED
+
+# IMS
+-system/app/ims/ims.apk
+
+# Radio
+-system/app/embms/embms.apk
+system/etc/permissions/embms.xml
+system/framework/embmslibrary.jar
+-system/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
+
+# Sidecar
+product/framework/vendor.essential.hardware.sidecar-V1.0-java.jar
+-system/app/Score/Score.apk
+system/app/Score/lib/arm64/libcxaudiohidlib_embcb_jni.so
+system/app/Score/lib/arm64/libCxAudioHidLib.so
+system/app/Score/lib/arm64/libusb1.0.so
+system/bin/fastboot_target
+system/etc/permissions/vendor-essential-hardware-sidecar.xml
+-system/priv-app/Klik/Klik.apk;PRESIGNED
+
+# WiFi Display
+system/bin/wfdservice
+system/etc/init/wfdservice.rc
+system/etc/wfdconfig.xml
+system/etc/wfdconfigsink.xml
+-system/framework/WfdCommon.jar
+system/lib/com.qualcomm.qti.wifidisplayhal@1.0.so
+system/lib/libFileMux.so
+system/lib/libOmxMux.so
+system/lib/libmmosal.so
+system/lib/libmmparser_lite.so
+system/lib/libmmrtpdecoder.so
+system/lib/libmmrtpencoder.so
+system/lib/libwfdavenhancements.so
+system/lib/libwfdcodecv4l2.so
+system/lib/libwfdcommonutils.so
+system/lib/libwfdconfigutils.so
+system/lib/libwfdmminterface.so
+system/lib/libwfdmmsink.so
+system/lib/libwfdmmsrc.so
+system/lib/libwfdrtsp.so
+system/lib/libwfdservice.so
+system/lib/libwfdsm.so
+system/lib/libwfduibcinterface.so
+system/lib/libwfduibcsink.so
+system/lib/libwfduibcsinkinterface.so
+system/lib/libwfduibcsrc.so
+system/lib/libwfduibcsrcinterface.so
+system/lib64/libmmosal.so
+system/lib64/libwfdclient.so
+system/lib64/libwfdnative.so
+-system/priv-app/WfdService/WfdService.apk
