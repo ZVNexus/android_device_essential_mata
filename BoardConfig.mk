@@ -184,3 +184,6 @@ WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 TARGET_ENABLE_MEDIADRM_64 := true
 
 BOARD_PREBUILT_VENDORIMAGE := vendor/essential/mata/vendor.img
+
+# TODO - Fix the copy headers.
+BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
