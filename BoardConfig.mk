@@ -50,6 +50,12 @@ BOARD_KERNEL_CMDLINE += \
     swiotlb=2048 \
     user_debug=31
 
+# Inline kernel building.
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+TARGET_KERNEL_SOURCE := kernel/essential/msm8998
+TARGET_KERNEL_CONFIG := electric_mata_defconfig
+TARGET_KERNEL_CLANG_COMPILE := true
+
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x04000000
 BOARD_FLASH_BLOCK_SIZE := 131072
