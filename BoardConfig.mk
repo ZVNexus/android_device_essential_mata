@@ -29,6 +29,27 @@ TARGET_2ND_CPU_VARIANT := cortex-a73
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := Mata
 
+# Kernel
+BOARD_KERNEL_BASE        := 0x00000000
+BOARD_KERNEL_PAGESIZE    := 4096
+BOARD_KERNEL_OFFSET      := 0x80000
+BOARD_KERNEL_TAGS_OFFSET := 0x02500000
+BOARD_RAMDISK_OFFSET     := 0x02700000
+
+BOARD_KERNEL_CMDLINE += \
+    androidboot.configfs=true \
+    androidboot.hardware=mata \
+    androidboot.usbcontroller=a800000.dwc3 \
+    ehci-hcd.park=3 \
+    firmware_class.path=/vendor/firmware_mnt/image \
+    loop.max_part=7 \
+    lpm_levels.sleep_disabled=1 \
+    msm_rtb.filter=0x37 \
+    sched_enable_power_aware=1 \
+    service_locator.enable=1 \
+    swiotlb=2048 \
+    user_debug=31
+
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x04000000
 BOARD_FLASH_BLOCK_SIZE := 131072
