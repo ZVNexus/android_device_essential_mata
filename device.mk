@@ -26,6 +26,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libbase_shim
 
+# Init
+PRODUCT_PACKAGES += \
+    fstab.mata \
+    init.mata.rc
+
 # Namespaces
 PRODUCT_SOONG_NAMESPACES += \
     device/essential/mata
