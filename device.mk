@@ -38,6 +38,12 @@ PRODUCT_PACKAGES += \
     fstab.mata \
     init.mata.rc
 
+# NFC
+PRODUCT_PACKAGES += \
+    NfcNci \
+    Tag \
+    com.android.nfc_extras
+
 # Namespaces
 PRODUCT_SOONG_NAMESPACES += \
     device/essential/mata
