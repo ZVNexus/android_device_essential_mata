@@ -48,6 +48,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += \
     device/essential/mata
 
+# Overlays
+PRODUCT_PACKAGES += \
+    EssentialCarrierConfig \
+    EssentialFrameworks \
+    EssentialSettings \
+    EssentialSettingsProvider \
+    EssentialSystemUI \
+    EssentialTelephony
+
 # Shipping API
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_n_mr1.mk)
 
