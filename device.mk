@@ -45,6 +45,12 @@ PRODUCT_SOONG_NAMESPACES += \
 # Shipping API
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_n_mr1.mk)
 
+# Update Engine
+PRODUCT_PACKAGES += \
+    update_engine \
+    update_engine_sideload \
+    update_verifier
+
 # VNDK
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 PRODUCT_TARGET_VNDK_VERSION := 29
