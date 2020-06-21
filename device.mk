@@ -36,7 +36,8 @@ PRODUCT_PACKAGES += \
 # Init
 PRODUCT_PACKAGES += \
     fstab.mata \
-    init.mata.rc
+    init.mata.rc \
+    init.recovery.mata.rc
 
 # Keylayout
 PRODUCT_COPY_FILES += \
