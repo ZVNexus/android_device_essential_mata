@@ -75,6 +75,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 PRODUCT_TARGET_VNDK_VERSION := 29
 
+# Vendor
+$(call inherit-product-if-exists, vendor/essential/mata/mata-vendor.mk)
+
 # Verity
 $(call inherit-product, build/target/product/verity.mk)
 PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc/1da4000.ufshc/by-name/system
