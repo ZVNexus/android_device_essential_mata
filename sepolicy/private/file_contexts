@@ -1,0 +1,5 @@
+# DSP
+/dsp(/.*)?                                                     u:object_r:adsprpcd_file:s0
+
+# IMS RCS
+/(product|system/product)/vendor_overlay/[0-9]+/bin/imsrcsd    u:object_r:hal_rcsservice_exec:s0
