@@ -22,6 +22,13 @@ AB_OTA_POSTINSTALL_CONFIG += \
 PRODUCT_PACKAGES += \
     otapreopt_script
 
+# Boot Control
+PRODUCT_STATIC_BOOT_CONTROL_HAL := \
+    bootctrl.msm8998 \
+    libcutils \
+    librecovery_updater_msm \
+    libz
+
 # IMS
 PRODUCT_PACKAGES += \
     libbase_shim
